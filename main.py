@@ -1,31 +1,33 @@
 # Python program for simple calculator
 
 # Function to add two numbers
-def add( x, y):
-  return x + y
+def add(x, y):
+    return x + y
 
 # Function to subtract two numbers
-def subtract( x, y):
-  return x - y
+def subtract(x, y):
+    return x - y
 
-# Function to multipy two numbers
-def multiply( x, y):
-  return x * y
+# Function to multiply two numbers
+def multiply(x, y):
+    return x * y
 
 # Function to divide two numbers
-def divide( x, y):
-  if y != 0:
-    return x / y
-  else:
-    return "Error! division by zero"
+def divide(x, y):
+    if y != 0:
+         return x / y
+    else:
+        return "Error! Division by zero."
 
-print("select an operation: \n" \
-     "1. Add\n" \
-     "2. Subtract\n" \
-     "3. Multiply\n" \
-     "4. Divide\n")
- while True:
-        choice = input("Enter choice (1/2/3/4): ")
+def calculator():
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    
+    while True:
+        choice = input("Enter an operation (1/2/3/4): ")
 
         if choice in ('1', '2', '3', '4'):
             try:
@@ -49,7 +51,7 @@ print("select an operation: \n" \
                     print(f"{num1} / {num2} = {result}")
 
             next_calculation = input("Do you want to perform another calculation? (yes/no): ")
-            if next_calculation.lower() != 'yes':
+            if next_calculation.lower() == 'no':
                 break
         else:
             print("Invalid Input")
@@ -57,5 +59,4 @@ print("select an operation: \n" \
 if __name__ == "__main__":
     calculator()
 
-
-
+    
