@@ -24,31 +24,38 @@ print("select an operation: \n" \
      "2. Subtract\n" \
      "3. Multiply\n" \
      "4. Divide\n")
+ while True:
+        choice = input("Enter choice (1/2/3/4): ")
 
-# Take input from the user
-select = int(input("Please select an operation from 1, 2, 3, 4: "))
+        if choice in ('1', '2', '3', '4'):
+            try:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+                continue
 
-number_1 = int(input("Enter first number: "))
-number_2 = int(input("Enter second number: "))
+            if choice == '1':
+                print(f"{num1} + {num2} = {add(num1, num2)}")
+            elif choice == '2':
+                print(f"{num1} - {num2} = {subtract(num1, num2)}")
+            elif choice == '3':
+                print(f"{num1} * {num2} = {multiply(num1, num2)}")
+            elif choice == '4':
+                result = divide(num1, num2)
+                if result == "Error! Division by zero.":
+                    print(result)
+                else:
+                    print(f"{num1} / {num2} = {result}")
 
-if select == 1:
-	print(number_1, "+", number_2, "=",
-					add(number_1, number_2))
+            next_calculation = input("Do you want to perform another calculation? (yes/no): ")
+            if next_calculation.lower() != 'yes':
+                break
+        else:
+            print("Invalid Input")
 
-elif select == 2:
-	print(number_1, "-", number_2, "=",
-					subtract(number_1, number_2))
-
-elif select == 3:
-	print(number_1, "*", number_2, "=",
-					multiply(number_1, number_2))
-
-elif select == 4:
-	print(number_1, "/", number_2, "=",
-					divide(number_1, number_2))
-else:
-	print("Invalid input")
-
+if __name__ == "__main__":
+    calculator()
 
 
 
